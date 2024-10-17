@@ -21,6 +21,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('quiz/', include('quiz.urls')),
+
+    # API
+    path('api-auth/', include('rest_framework.urls')),
 ]
 
 from django.conf import settings
