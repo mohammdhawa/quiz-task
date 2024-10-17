@@ -40,10 +40,13 @@ INSTALLED_APPS = [
 
     # My Packages
     'rest_framework',
+    'drf_yasg',
+    'rest_framework.authtoken',
 
     # My Apps
     'quiz.apps.QuizConfig'
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -85,6 +88,14 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+}
+
+
+# Rest Framework
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
 }
 
 
