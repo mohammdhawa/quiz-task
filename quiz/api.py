@@ -4,9 +4,15 @@ from .permissions import IsTeacherOrReadOnly, IsTeacherOrReadOnlyOrIsStudentForS
 from .models import Quiz, Question, Choice, StudentQuizSubmission, Answer
 from .serializers import (
     QuizSerializer, QuestionSerializer, ChoiceSerializer,
-    StudentQuizSubmissionSerializer, AnswerSerializer
+    StudentQuizSubmissionSerializer, AnswerSerializer, UserRegistrationSerializer
 )
 from rest_framework_simplejwt.authentication import JWTAuthentication
+from rest_framework.permissions import AllowAny
+
+
+class UserRegistrationAPI(generics.CreateAPIView):
+    serializer_class = UserRegistrationSerializer
+    permission_classes = [AllowAny]  # Allow anyone to register
 
 
 class QuizListCreateAPI(generics.ListCreateAPIView):

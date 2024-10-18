@@ -4,7 +4,7 @@ from .api import (
     QuestionListCreateAPI, QuestionDetailAPI,
     ChoiceListCreateAPI, ChoiceDetailAPI,
     StudentQuizSubmissionListCreateAPI, StudentQuizSubmissionDetailAPI,
-    AnswerListCreateAPI, AnswerDetailAPI
+    AnswerListCreateAPI, AnswerDetailAPI, UserRegistrationAPI
 )
 
 urlpatterns = [
@@ -27,4 +27,6 @@ urlpatterns = [
     # Answer URLs
     path('submissions/<int:submission_id>/answers/', AnswerListCreateAPI.as_view(), name='answer-list-create'),
     path('answers/<int:pk>/', AnswerDetailAPI.as_view(), name='answer-detail'),
+
+    path('register/', UserRegistrationAPI.as_view(), name='register'),
 ]
